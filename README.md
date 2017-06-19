@@ -2,6 +2,7 @@
 Self-Driving Car Engineer Nanodegree Program
 
 ##Kinematic Model
+
 The kinematic model described in the lesson is as bellow, where `Lf = 2.67` in the simulator:
 ```
 x(​t+1) = x(t) + v(t)∗cos(ψ(t))∗dt
@@ -15,12 +16,15 @@ For optimization purpose, some constrains was based on the model, which was code
 Before we solve the optimizer, the state update was written in line 145 of `main.cpp`. `x,y,psi` is set to 0 as the coordinate system was transformed to car coordinate. `v` is based on the prediction of the kinematic model, while `cte` and `epsi` is based on the prediction as well as the polynomial fit.
 
 ##Timestep Length and Elapsed Duration 
+
 `N = 10 ` was is a good value that balance between prediction and efficiency, while `dt = 0.1 ` equals to the 100ms latency of the track data, which make the prediction fast and accurate enough. 
 
 ##Polynomial Fitting and MPC Preprocessing.
+
 A 3rd order polynomial is chosen to fit the waypoints as well as the predicted path. 3rd order is quite a good model for fit curves and straight path. The coordinate system was transformed to the car's coordinate system before the processing
 
 ##Latency
+
 The way to deal with the latency was to predict the next state first, then fit the polynomial based on the predicted state, and solve the optimizer problem based on previous step.
 
 
