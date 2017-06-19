@@ -32,7 +32,7 @@ size_t epsi_start = cte_start + N;
 size_t delta_start = epsi_start + N;
 size_t a_start = delta_start + N - 1;
 
-double ref_v = 40;
+double ref_v = 60;
 
 class FG_eval {
  public:

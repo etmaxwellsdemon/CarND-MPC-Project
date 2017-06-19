@@ -106,6 +106,7 @@ int main() {
                      *
                      */
                     
+                    
                     //kinematic model of the car
                     //As there's 100ms latency, first we estimate next state of the car
                     double dt = 0.1;
@@ -142,7 +143,7 @@ int main() {
                     double epsi = -atan(poly_coeff(1));
                     
                     Eigen::VectorXd state(6);
-                    state << v*dt, 0, -v * steering_angle / Lf * dt, next_v, cte, epsi;
+                    state << 0, 0, 0, next_v, cte, epsi;
                     
                     //solve the optimizer problem and get the steer and throttle value
                     auto vars = mpc.Solve(state, poly_coeff);
